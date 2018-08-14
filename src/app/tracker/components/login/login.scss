@@ -1,0 +1,25 @@
+@import '../../../../styles/app-colors';
+$compnentBackground: #b0b8c8;
+
+.login-area {
+  width: 450px;
+  height: 400px;
+
+  margin: 100px auto;
+
+  background-color: $compnentBackground;
+  text-align: center;
+}
+
+.login-header {
+  position: relative;
+
+  margin-top: 100px;
+}
+
+.login-form {
+  width: 300px;
+
+  margin: 60px auto;
+}
+

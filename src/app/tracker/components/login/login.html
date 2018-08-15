@@ -10,15 +10,15 @@
     </div>
     <div class="login-form">
       <mat-form-field appearance="outline">
-        <input matInput>
+        <input [(ngModel)]="email" placeholder="Email" matInput>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input matInput>
+        <input type="password" [(ngModel)]="password" placeholder="Password" matInput>
       </mat-form-field>
 
       <div class="login-button">
-        <button mat-raised-button>Login</button>
+        <button mat-raised-button (click)="login()">Login</button>
       </div>
 
 

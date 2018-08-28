@@ -1,0 +1,73 @@
+<div class="tracker-page">
+  <h1>Welcome to the expense page</h1>
+
+  <div class="form-area">
+
+    <div class="form-header">
+      <h3>Expenses</h3>
+    </div>
+
+    <div class="date-selection">
+      <mat-form-field>
+        <mat-select placeholder="Month" [(value)]="expense.month" name="month">
+          <mat-option *ngFor="let month of months" [value]="month.value">
+            {{month.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Year" type="number" [(ngModel)]="expense.year">
+      </mat-form-field>
+    </div>
+
+    <div class="column-section">
+
+      <div class="form-column">
+        <mat-form-field appearance="outline">
+          <input matInput type="text" placeholder="Food" [(ngModel)]="expense.food">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" placeholder="Gas" [(ngModel)]="expense.gas">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" [(ngModel)]="expense.household" placeholder="Household">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" [(ngModel)]="expense.clothing" placeholder="Clothing">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" [(ngModel)]="expense.misc" placeholder="Miscellaneous">
+        </mat-form-field>
+
+      </div>
+
+      <div class="form-column">
+        <mat-form-field appearance="outline">
+          <input matInput type="text" placeholder="Mortgage" [(ngModel)]="expense.mortgage">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" placeholder="Utilities" [(ngModel)]="expense.utilities">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" [(ngModel)]="expense.home" placeholder="Home">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input matInput type="text" [(ngModel)]="expense.tuition" placeholder="Tuition">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="button-area">
+      <button mat-raised-button (click)="saveExpense()">Save</button>
+    </div>
+  </div>
+</div>

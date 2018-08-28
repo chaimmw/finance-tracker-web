@@ -1,5 +1,8 @@
 @import '../../../../styles/app-colors';
-$compnentBackground: #b0b8c8;
+
+.login-page {
+  background-color: $trackerBackground;
+}
 
 .login-area {
   width: 450px;

@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { AgGridModule } from 'ag-grid-angular';
 
 import {LoginComponent} from './components/login/login';
 import {TrackerRoutingModule} from './tracker-routing.module';
@@ -40,6 +41,9 @@ import {SummaryPageComponent} from './components/summary-page/summary-page';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+
+    // ag grid
+    AgGridModule.withComponents([]),
 
     // routes
     TrackerRoutingModule,

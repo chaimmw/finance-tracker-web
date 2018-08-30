@@ -1,3 +1,37 @@
 <div class="tracker-page">
   <h1>welcome to the income page</h1>
+
+
+  <div class="form-area">
+
+    <div class="form-header">
+      <p>Income</p>
+    </div>
+
+    <div class="date-selection">
+      <mat-form-field>
+        <mat-select placeholder="Month" [(value)]="income.month" name="month">
+          <mat-option *ngFor="let month of months" [value]="month.value">
+            {{month.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Year" type="number" [(ngModel)]="income.year">
+      </mat-form-field>
+    </div>
+
+    <div class="earning-field">
+      <mat-form-field appearance="outline">
+        <input matInput type="number" placeholder="Earnings" [(ngModel)]="income.earnings">
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="button-area">
+      <button mat-raised-button (click)="saveIncome()">Save</button>
+    </div>
+  </div>
 </div>

@@ -3,18 +3,48 @@
 
 .tracker-page {
 //  width: 100%;
-//  height: 1000px;
+  height: 1000px;
 
-  background-color: $trackerBackground;
-  //background-image: url("../../../assets/images/accounting-balance-banking-159804.jpg");
+  //background-color: $trackerBackground;
+  background-image: url('/assets/images/accounting-balance-banking-159804.jpg');
+  background-size: 2000px;
 }
 
+
 .form-area {
+  position: relative;
   width: 60%;
 
   margin: 10% 20% 2%;
 
+  background-color: $compnentBackground;
   text-align: center;
+
+  border-radius: 7px;
+
+  .form-header {
+    position: relative;
+    height: 60px;
+
+    padding: 30px;
+    margin-bottom: 40px;
+
+    p {
+      position: relative;
+      width: 100px;
+      margin: 0 auto;
+
+      font-size: xx-large;
+    }
+  }
+
+  .date-selection {
+    display: flex;
+
+    margin: 10px;
+    justify-content: space-evenly;
+  }
+
 }
 
 .button-area {

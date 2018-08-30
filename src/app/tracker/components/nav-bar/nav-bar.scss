@@ -1,0 +1,14 @@
+@import '../../../../styles/app-colors';
+
+.nav-bar {
+  position: fixed;
+  display: flex;
+  top: 0;
+  height: 60px;
+  width: 100%;
+
+  background-color: $compnentBackground;
+  justify-content: space-evenly;
+}
+
+

@@ -18,6 +18,7 @@ import {AuthService} from './services/authService';
 import {ExpensePageComponent} from './components/expense-page/expense-page';
 import {IncomePageComponent} from './components/income-page/income-page';
 import {SummaryPageComponent} from './components/summary-page/summary-page';
+import {NavBarComponent} from './components/nav-bar/nav-bar';
 
 
 
@@ -30,6 +31,7 @@ import {SummaryPageComponent} from './components/summary-page/summary-page';
     ExpensePageComponent,
     IncomePageComponent,
     SummaryPageComponent,
+    NavBarComponent,
       ],
   imports: [
     BrowserModule,

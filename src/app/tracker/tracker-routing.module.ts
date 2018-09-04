@@ -6,6 +6,7 @@ import {TrackerLayoutComponent} from './components/tracker-layout/tracker-layout
 import {ExpensePageComponent} from './components/expense-page/expense-page';
 import {IncomePageComponent} from './components/income-page/income-page';
 import {SummaryPageComponent} from './components/summary-page/summary-page';
+import {AboutPageComponent} from './components/about-page/about-page';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       {path: 'expense', component: ExpensePageComponent},
       {path: 'income', component: IncomePageComponent},
       {path: 'summary', component: SummaryPageComponent},
+      {path: 'about', component: AboutPageComponent},
     ],
   },
 ];

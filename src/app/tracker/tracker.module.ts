@@ -19,6 +19,7 @@ import {ExpensePageComponent} from './components/expense-page/expense-page';
 import {IncomePageComponent} from './components/income-page/income-page';
 import {SummaryPageComponent} from './components/summary-page/summary-page';
 import {NavBarComponent} from './components/nav-bar/nav-bar';
+import {AboutPageComponent} from './components/about-page/about-page';
 
 
 
@@ -32,6 +33,7 @@ import {NavBarComponent} from './components/nav-bar/nav-bar';
     IncomePageComponent,
     SummaryPageComponent,
     NavBarComponent,
+    AboutPageComponent,
       ],
   imports: [
     BrowserModule,

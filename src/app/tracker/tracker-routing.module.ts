@@ -7,6 +7,7 @@ import {ExpensePageComponent} from './components/expense-page/expense-page';
 import {IncomePageComponent} from './components/income-page/income-page';
 import {SummaryPageComponent} from './components/summary-page/summary-page';
 import {AboutPageComponent} from './components/about-page/about-page';
+import {ContactPageComponent} from './components/contact-page/contact-page';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'income', component: IncomePageComponent},
       {path: 'summary', component: SummaryPageComponent},
       {path: 'about', component: AboutPageComponent},
+      {path: 'contact', component: ContactPageComponent},
     ],
   },
 ];

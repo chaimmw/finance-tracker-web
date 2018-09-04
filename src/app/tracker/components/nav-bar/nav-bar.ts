@@ -16,9 +16,6 @@ export class NavBarComponent {
                 private feathersClient: FeathersClientService) {
     }
 
-    goToHome() {
-      this.router.navigate(['/tracker/dashboard']);
-    }
 
     logout() {
       this.feathersClient.logout();

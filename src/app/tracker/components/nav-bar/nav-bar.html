@@ -1,11 +1,11 @@
 <div class="nav-bar">
   <div class="nav-title">
-    <span (click)="goToHome()">Finance Tracker</span>
+    <a routerLink="/tracker/dashboard"><span>Finance Tracker</span></a>
     </div>
   <div class="nav-links">
-    <a>Home</a>
+    <a routerLink="/tracker/dashboard">Home</a>
     <a routerLink="/tracker/about">About</a>
-    <a>Contact</a>
+    <a routerLink="/tracker/contact">Contact</a>
     <a (click)="logout()">Logout</a>
   </div>
 </div>

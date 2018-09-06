@@ -8,11 +8,13 @@ import {IncomePageComponent} from './components/income-page/income-page';
 import {SummaryPageComponent} from './components/summary-page/summary-page';
 import {AboutPageComponent} from './components/about-page/about-page';
 import {ContactPageComponent} from './components/contact-page/contact-page';
+import {JoinPageComponent} from './components/join-page/join-page';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'join', component: JoinPageComponent},
   {
     path: 'tracker',
     component: TrackerLayoutComponent,

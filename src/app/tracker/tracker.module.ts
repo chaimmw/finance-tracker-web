@@ -21,6 +21,7 @@ import {SummaryPageComponent} from './components/summary-page/summary-page';
 import {NavBarComponent} from './components/nav-bar/nav-bar';
 import {AboutPageComponent} from './components/about-page/about-page';
 import {ContactPageComponent} from './components/contact-page/contact-page';
+import {JoinPageComponent} from './components/join-page/join-page';
 
 
 
@@ -36,6 +37,7 @@ import {ContactPageComponent} from './components/contact-page/contact-page';
     NavBarComponent,
     AboutPageComponent,
     ContactPageComponent,
+    JoinPageComponent,
       ],
   imports: [
     BrowserModule,

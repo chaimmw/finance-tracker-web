@@ -16,19 +16,6 @@ export class SummaryPageComponent implements OnInit {
   expenses = [];
   incomes = [];
 
-  months = [{name: 'Jan', value: 1},
-    {name: 'Feb', value: 2},
-    {name: 'Mar', value: 3},
-    {name: 'Apr', value: 4},
-    {name: 'May', value: 5},
-    {name: 'Jun', value: 6},
-    {name: 'Jul', value: 7},
-    {name: 'Aug', value: 8},
-    {name: 'Sept', value: 9},
-    {name: 'Oct', value: 10},
-    {name: 'Nov', value: 11},
-    {name: 'Dec', value: 12}];
-
   gridOptions = <GridOptions>  {
     columnDefs: [{
       headerName: 'year',
@@ -81,6 +68,24 @@ export class SummaryPageComponent implements OnInit {
               return '';
           }
         },
+        sort: 'asc',
+        comparator: function (valueA, valueB, nodeA, nodeB, isInverted) {
+          // get date info from nodes
+          const rowAYear = nodeA.data.year;
+          const rowBYear = nodeB.data.year;
+          const rowAMonth = nodeA.data.month;
+          const rowBMonth = nodeB.data.month;
+          //if same year
+          if (rowBYear === rowAYear) {
+            return rowAMonth - rowBMonth;
+            // if later
+          } else if (rowAYear > rowBYear) {
+            return 1;
+            // if earlier
+          }  else if (rowAYear < rowBYear) {
+            return -1;
+          }
+        },
         width: 100,
       },
       {
@@ -101,6 +106,7 @@ export class SummaryPageComponent implements OnInit {
         width: 100,
       },
     ],
+    enableSorting: true,
     suppressHorizontalScroll: true,
     headerHeight: 50,
     rowHeight: 50,
@@ -147,8 +153,6 @@ export class SummaryPageComponent implements OnInit {
 
     this.rowData = this.expenses.map(expense => {
 
-      console.log(this.incomes, expense);
-
       const income = this.incomes.filter(earnings => earnings.year === expense.year && earnings.month === expense.month);
 
       expense.totalExpense = this.getTotalExpense(expense);
@@ -164,49 +168,4 @@ export class SummaryPageComponent implements OnInit {
     return _.sum(_.values(data));
   }
 
-  getMonthName(month) {
-    switch (month) {
-
-      case 1:
-        return 'Jan';
-        break;
-      case 2:
-        return 'Feb';
-        break;
-      case 3:
-        return 'Mar';
-        break;
-      case 4:
-        return 'Apr';
-        break;
-      case 5:
-        return 'May';
-        break;
-      case 6:
-        return 'Jun';
-        break;
-      case 7:
-        return 'Jul';
-        break;
-      case 8:
-        return 'Aug';
-        break;
-      case 9:
-        return 'Sept';
-        break;
-      case 10:
-        return 'Oct';
-        break;
-      case 11:
-        return 'Nov';
-        break;
-      case 12:
-        return 'Dec';
-        break;
-
-      default:
-        return '';
-
-    }
-  }
 }

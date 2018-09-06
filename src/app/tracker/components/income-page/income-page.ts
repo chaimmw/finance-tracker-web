@@ -38,6 +38,9 @@ export class IncomePageComponent {
     }
 
     saveIncome() {
+
+      this.income.userId = this.authService.user._id;
+
       this.feathersClient.service('incomes').create(this.income).then(response => {
         console.log('saved');
       });

@@ -130,18 +130,19 @@ export class SummaryPageComponent implements OnInit {
   }
 
   getUserFinanceRecords() {
+    console.log(this.authService.user._id);
 
     this.feathersClient.service('expenses').find({
+      query: {
       userId: this.authService.user._id
-    }).then(response => {
+    }}).then(response => {
       this.expenses = response.data;
 
       this.feathersClient.service('incomes').find({
-        userId: this.authService.user._id
-      }).then(responses => {
+        query: {
+          userId: this.authService.user._id
+        }}).then(responses => {
         this.incomes = responses.data;
-        console.log(this.expenses, this.incomes);
-
       }).then(() => {
         this.combineIncomeExpenseData();
       });

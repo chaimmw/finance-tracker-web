@@ -20,17 +20,17 @@ export class JoinPageComponent {
 
   user = _.cloneDeep(defaltUser);
 
-    constructor(private feathersClient: FeathersClientService,
-                private authService: AuthService) {
-    }
+  constructor(private feathersClient: FeathersClientService,
+              private authService: AuthService) {
+  }
 
 
-    addUser() {
-      this.feathersClient.service('users').create(this.user).then(response => {
-        console.log('saved');
-        this.login();
-      });
-    }
+  addUser() {
+    this.feathersClient.service('users').create(this.user).then(response => {
+      console.log('saved');
+      this.login();
+    });
+  }
 
   login() {
 
@@ -42,4 +42,5 @@ export class JoinPageComponent {
 
     this.authService.authenticate(credentials);
 
+  }
 }

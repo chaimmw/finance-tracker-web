@@ -75,7 +75,7 @@ export class SummaryPageComponent implements OnInit {
           const rowBYear = nodeB.data.year;
           const rowAMonth = nodeA.data.month;
           const rowBMonth = nodeB.data.month;
-          //if same year
+          // if same year
           if (rowBYear === rowAYear) {
             return rowAMonth - rowBMonth;
             // if later
@@ -140,6 +140,7 @@ export class SummaryPageComponent implements OnInit {
         userId: this.authService.user._id
       }).then(responses => {
         this.incomes = responses.data;
+        console.log(this.expenses, this.incomes);
 
       }).then(() => {
         this.combineIncomeExpenseData();

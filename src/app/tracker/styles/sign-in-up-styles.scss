@@ -1,0 +1,41 @@
+@import '../../../styles/app-colors';
+
+.enroll-page {
+  height: 200%;
+
+  background-color: $trackerBackground;
+}
+
+.enroll-area {
+  width: 450px;
+
+  margin: 100px auto;
+
+  background-color: $componentBackground;
+  text-align: center;
+}
+
+.enroll-header {
+  position: relative;
+
+  margin-top: 100px;
+  padding: 10px;
+
+  font-size: larger;
+}
+
+.enroll-form {
+  width: 300px;
+
+  margin: 60px auto;
+}
+
+.button-area {
+  height: 85px;
+
+  button {
+    margin: 15px 10px;
+  }
+}
+
+

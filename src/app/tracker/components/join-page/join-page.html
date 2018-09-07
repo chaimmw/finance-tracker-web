@@ -1,3 +1,37 @@
-<div class="join-page">
+<div class="enroll-page">
   <h1>Welcome to the join page</h1>
+
+  <div class="enroll-area">
+    <div class="enroll-header">
+      <p class="header">Join</p>
+    </div>
+    <div class="enroll-form">
+
+      <mat-form-field appearance="outline">
+        <input [(ngModel)]="user.firstName" placeholder="First Name" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input [(ngModel)]="user.lastName" placeholder="Last Name" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input [(ngModel)]="user.username" placeholder="Username" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input [(ngModel)]="user.email" placeholder="Email" matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input type="password" [(ngModel)]="user.password" placeholder="Password" matInput>
+      </mat-form-field>
+
+      <div class="button-area">
+        <button mat-raised-button (click)="addUser()">Join</button>
+      </div>
+
+
+    </div>
+</div>
 </div>

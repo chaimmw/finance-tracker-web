@@ -1,6 +1,31 @@
-<div class="tracker-page">
-  <h1>welcome to the contact page</h1>
-  <h1>welcome to the contact page</h1>
-  <h1>welcome to the contact page</h1>
-  <h1>welcome to the contact page</h1>
-</div>
+<!--<div class="tracker-page">-->
+
+  <div class="page-content">
+
+    <div class="page-header-area">
+      <p class="header">Contact page</p>
+    </div>
+
+
+
+
+
+    <div class="form-area contact-form">
+      <div class="form-header">Contact Us</div>
+
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Your Email" type="text" [(ngModel)]="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <textarea matInput placeholder="Message" type="text" [(ngModel)]="message"></textarea>
+      </mat-form-field>
+
+      <div class="button-area">
+        <button mat-raised-button (click)="sendEmail()">Send</button>
+      </div>
+
+    </div>
+
+  </div>
+<!--</div>-->

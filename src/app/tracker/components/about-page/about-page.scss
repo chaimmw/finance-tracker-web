@@ -1,0 +1,21 @@
+@import '../../../../styles/app-colors';
+
+
+
+.about-area {
+  width: 65%;
+
+  margin: 0 auto;
+
+  background-color: $componentBackground;
+}
+
+.about-header {
+  padding: 30px;
+
+  .header-title {
+
+    color: $componentWhite;
+    font-size: xx-large;
+  }
+}

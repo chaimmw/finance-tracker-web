@@ -48,7 +48,12 @@ export class ExpensePageComponent {
       this.expense.userId = this.authService.user._id;
       this.feathersClient.service('expenses').create(this.expense).then(response => {
         console.log('saved');
+        this.clearFields();
       });
+    }
+
+    clearFields() {
+      this.expense = _.cloneDeep(defaultExpense);
     }
 
 }

@@ -43,7 +43,12 @@ export class IncomePageComponent {
 
       this.feathersClient.service('incomes').create(this.income).then(response => {
         console.log('saved');
+        this.clearFields();
       });
+    }
+
+    clearFields() {
+      this.income = _.cloneDeep(defaultIncome);
     }
 
 }

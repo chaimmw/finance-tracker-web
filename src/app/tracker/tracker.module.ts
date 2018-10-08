@@ -6,6 +6,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {LoginComponent} from './components/login/login';
@@ -23,6 +25,7 @@ import {AboutPageComponent} from './components/about-page/about-page';
 import {ContactPageComponent} from './components/contact-page/contact-page';
 import {JoinPageComponent} from './components/join-page/join-page';
 import {ValidatorService} from './services/validator.service';
+import {SimpleDialogComponent} from './components/simple-dialog/simple-dialog';
 
 
 
@@ -39,6 +42,7 @@ import {ValidatorService} from './services/validator.service';
     AboutPageComponent,
     ContactPageComponent,
     JoinPageComponent,
+    SimpleDialogComponent,
       ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import {ValidatorService} from './services/validator.service';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatDialogModule,
+    MatIconModule,
 
     // ag grid
     AgGridModule.withComponents([]),

@@ -11,11 +11,34 @@
 }
 
 .about-header {
+  display: flex;
   padding: 30px;
 
-  .header-title {
+  img {
+    width: 150px;
+    height: 150px;
 
-    color: $componentWhite;
+    margin: 0 20px;
+  }
+
+  .title {
+    margin: 0 20px;
+  }
+
+  .header-title {
+    //color: $componentWhite;
     font-size: xx-large;
   }
+
+  .header-subtitle {
+    padding: 1px;
+    margin: 0;
+  }
+
+
+}
+
+.about-content {
+  padding: 30px;
+  margin: 10px 5px;
 }

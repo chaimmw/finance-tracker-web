@@ -1,0 +1,36 @@
+@import '../../../../styles/app-colors';
+
+
+
+.dashboard-card-area {
+  display: flex;
+
+  margin: 3% 10%;
+}
+
+.dashboard-card {
+  position: relative;
+  width: 180px;
+  height: 275px;
+
+  margin: 0 10px;
+
+  background-color: $componentBackground;
+  border-radius: 7px;
+  text-align: center;
+
+  .card-header {
+    padding: 3px;
+    margin: 4px auto;
+  }
+
+  .card-description {
+    margin: 4px;
+  }
+
+  .link {
+    position: relative;
+    bottom: -30px;
+    margin: 50px auto 0;
+  }
+}

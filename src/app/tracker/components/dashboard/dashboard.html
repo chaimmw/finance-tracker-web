@@ -1,12 +1,41 @@
 <div class="page-content">
 
   <div class="page-header-area">
-    <p class="header">Dashboard page</p>
+    <p class="header">Dashboard</p>
   </div>
 
-  <div class="nav-links">
-    <div class="link"><a routerLink="/tracker/expense"><button mat-raised-button>Add Expense</button></a></div>
-    <div class="link"><a routerLink="/tracker/income"><button mat-raised-button>Add Income</button></a></div>
-    <div class="link"><a routerLink="/tracker/summary"><button mat-raised-button>Summary</button></a></div>
-  </div>
+
+    <div class="dashboard-card-area">
+      <div class="dashboard-card">
+        <div class="card-header">
+          <p>Expense</p>
+        </div>
+        <div class="card-description">
+          <p>Keep track of what you spend every month</p>
+        </div>
+        <div class="link"><a routerLink="/tracker/expense"><button mat-raised-button>Add Expense</button></a></div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <p>Income</p>
+        </div>
+        <div class="card-description">
+          <p>Keep track of what you make every month</p>
+        </div>
+        <div class="link"><a routerLink="/tracker/income"><button mat-raised-button>Add Income</button></a></div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <p>Summary</p>
+        </div>
+        <div class="card-description">
+          <p>Keep track of your monthly finances</p>
+        </div>
+        <div class="link"><a routerLink="/tracker/summary"><button mat-raised-button>Summary</button></a></div>
+      </div>
+    </div>
+
+
 </div>

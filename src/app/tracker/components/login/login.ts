@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import {AuthService} from '../../services/authService';
+import {FormControl, Validators} from '@angular/forms';
 
 
 
@@ -10,22 +11,26 @@ import {AuthService} from '../../services/authService';
 })
 export class LoginComponent {
 
- email;
-  password;
-
-    constructor(private authService: AuthService,) {
-    }
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
 
 
-    login() {
+  constructor(private authService: AuthService,) {
+  }
 
-      const credentials = {
-        strategy: 'local',
-        email: this.email,
-        password: this.password,
-      };
 
-      this.authService.authenticate(credentials);
-    }
+  login() {
+
+    const credentials = {
+      strategy: 'local',
+      email: this.email,
+      password: this.password,
+    };
+
+    this.authService.authenticate(credentials);
+  }
+  test(){
+    return true;
+  }
 
 }

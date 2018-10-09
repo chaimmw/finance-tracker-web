@@ -10,11 +10,15 @@
     </div>
     <div class="enroll-form">
       <mat-form-field appearance="outline">
-        <input [(ngModel)]="email" placeholder="Email" matInput>
+        <input [formControl]="email" placeholder="Email" matInput>
+        <mat-error *ngIf="email.invalid">
+          Please enter a valid email address
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input type="password" [(ngModel)]="password" placeholder="Password" matInput>
+        <input type="password" [formControl]="password" placeholder="Password" matInput>
+        <mat-error *ngIf="password.hasError('required')">Please enter a password</mat-error>
       </mat-form-field>
 
       <div class="login-button">

@@ -26,6 +26,7 @@ import {ContactPageComponent} from './components/contact-page/contact-page';
 import {JoinPageComponent} from './components/join-page/join-page';
 import {ValidatorService} from './services/validator.service';
 import {SimpleDialogComponent} from './components/simple-dialog/simple-dialog';
+import {ErrorDialogService} from './services/error-dialog.service';
 
 
 
@@ -69,6 +70,7 @@ import {SimpleDialogComponent} from './components/simple-dialog/simple-dialog';
     AuthGuard,
     AuthService,
     ValidatorService,
+    ErrorDialogService,
   ],
 })
 export class TrackerModule { }

@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 import * as _ from 'lodash';
 import {FeathersClientService} from '../../services/feathers-client.service';
 import {AuthService} from '../../services/authService';
+import {FormControl, Validators} from '@angular/forms';
 
 const defaltUser = {
   firstName: undefined,
@@ -19,6 +20,12 @@ const defaltUser = {
 export class JoinPageComponent {
 
   user = _.cloneDeep(defaltUser);
+  firstName;
+  lastName;
+  username = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
+  confirmPassword = new FormControl('', [Validators.required]);
 
   constructor(private feathersClient: FeathersClientService,
               private authService: AuthService) {

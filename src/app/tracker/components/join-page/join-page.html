@@ -8,23 +8,33 @@
     <div class="enroll-form">
 
       <mat-form-field appearance="outline">
-        <input [(ngModel)]="user.firstName" placeholder="First Name" matInput>
+        <input [(ngModel)]="firstName" placeholder="First Name" matInput>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input [(ngModel)]="user.lastName" placeholder="Last Name" matInput>
+        <input [(ngModel)]="lastName" placeholder="Last Name" matInput>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input [(ngModel)]="user.username" placeholder="Username" matInput>
+        <input [formControl]="username" placeholder="Username" matInput>
+        <mat-error *ngIf="username.hasError('required')">Please enter a username</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input [(ngModel)]="user.email" placeholder="Email" matInput>
+        <input [formControl]="email" placeholder="Email" matInput>
+        <mat-error *ngIf="email.invalid">
+          Please enter a valid email
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <input type="password" [(ngModel)]="user.password" placeholder="Password" matInput>
+        <input type="password" [formControl]="password" placeholder="Password" matInput>
+        <mat-error *ngIf="password.hasError('required')">Please enter a password</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <input type="password" [formControl]="confirmPassword" placeholder="Password" matInput>
+        <mat-error *ngIf="confirmPassword.hasError('required')">Please confirm password</mat-error>
       </mat-form-field>
 
       <div class="button-area">

@@ -3,6 +3,9 @@ import {Component} from '@angular/core';
 import * as _ from 'lodash';
 import {FeathersClientService} from '../../services/feathers-client.service';
 import {AuthService} from '../../services/authService';
+import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
+import {MatDialog} from '@angular/material';
+import {Router} from '@angular/router';
 
 const defaultIncome = {
   userId: undefined,
@@ -34,7 +37,9 @@ export class IncomePageComponent {
 
 
     constructor(private feathersClient: FeathersClientService,
-                private authService: AuthService,) {
+                private authService: AuthService,
+                private dialog: MatDialog,
+                private router: Router) {
     }
 
     saveIncome() {
@@ -44,11 +49,28 @@ export class IncomePageComponent {
       this.feathersClient.service('incomes').create(this.income).then(response => {
         console.log('saved');
         this.clearFields();
+        this.onSaveMessage();
       });
     }
 
     clearFields() {
       this.income = _.cloneDeep(defaultIncome);
     }
+
+  onSaveMessage() {
+    Promise.resolve().then(() => {
+      const dialogRef = this.dialog.open(SimpleDialogComponent, {
+        data: {
+          title: 'Saved',
+          message: 'Your income has been saved',
+        },
+        panelClass: 'dialog-container'
+      });
+
+      dialogRef.afterClosed().subscribe(() => {
+        this.router.navigate(['/tracker/dashboard']);
+      });
+    });
+  }
 
 }

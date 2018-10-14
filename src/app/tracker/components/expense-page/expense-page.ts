@@ -3,6 +3,9 @@ import {Component} from '@angular/core';
 import * as _ from 'lodash';
 import {FeathersClientService} from '../../services/feathers-client.service';
 import {AuthService} from '../../services/authService';
+import {MatDialog} from '@angular/material';
+import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
+import {Router} from '@angular/router';
 
 const defaultExpense = {
   userId: undefined,
@@ -41,7 +44,9 @@ export class ExpensePageComponent {
             {name: 'Dec', value: 12}];
 
     constructor(private feathersClient: FeathersClientService,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private dialog: MatDialog,
+                private router: Router) {
     }
 
     saveExpense(){
@@ -49,11 +54,28 @@ export class ExpensePageComponent {
       this.feathersClient.service('expenses').create(this.expense).then(response => {
         console.log('saved');
         this.clearFields();
+        this.onSaveMessage();
       });
     }
 
     clearFields() {
       this.expense = _.cloneDeep(defaultExpense);
+    }
+
+    onSaveMessage() {
+      Promise.resolve().then(() => {
+        const dialogRef = this.dialog.open(SimpleDialogComponent, {
+          data: {
+            title: 'Saved',
+            message: 'Your expense has been saved',
+          },
+          panelClass: 'dialog-container'
+        });
+
+        dialogRef.afterClosed().subscribe(() => {
+          this.router.navigate(['/tracker/dashboard']);
+        });
+      });
     }
 
 }

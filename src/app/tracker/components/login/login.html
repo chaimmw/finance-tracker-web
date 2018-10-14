@@ -4,32 +4,32 @@
 
 
 
-  <div class="enroll-area">
-    <div class="enroll-header">
-      <p>Login</p>
-    </div>
-    <div class="enroll-form">
-      <mat-form-field appearance="outline">
-        <input [formControl]="email" placeholder="Email" matInput>
-        <mat-error *ngIf="email.invalid">
-          Please enter a valid email address
-        </mat-error>
-      </mat-form-field>
+    <div class="enroll-area">
+      <div class="enroll-header">
+        <p>Login</p>
+      </div>
+      <div class="enroll-form">
+        <mat-form-field appearance="outline">
+          <input [formControl]="email" placeholder="Email" matInput>
+          <mat-error *ngIf="email.invalid">
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <input type="password" [formControl]="password" placeholder="Password" matInput>
-        <mat-error *ngIf="password.hasError('required')">Please enter a password</mat-error>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input type="password" [formControl]="password" placeholder="Password" matInput>
+          <mat-error *ngIf="password.hasError('required')">Please enter a password</mat-error>
+        </mat-form-field>
 
-      <div class="login-button">
-        <button mat-raised-button (click)="login()">Login</button>
+        <div class="login-button">
+          <button mat-raised-button (click)="login()">Login</button>
+        </div>
+
+
       </div>
 
-
+      <div class="links-area">
+        <p>Feel free to <a routerLink="/join">Join</a></p>
+      </div>
     </div>
-
-    <div class="links-area">
-      <p>Feel free to <a routerLink="/join">Join</a></p>
-    </div>
-  </div>
 </div>

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {FeathersClientService} from './feathers-client.service';
 import {Router} from '@angular/router';
+import {ErrorDialogService} from './error-dialog.service';
 
 
 @Injectable()
 export class AuthService {
 
   constructor(private feathersClient: FeathersClientService,
-              private router: Router) {}
+              private router: Router,
+              private errorDialog: ErrorDialogService) {}
 
   public isAuthenticated = false;
 
@@ -20,7 +22,7 @@ export class AuthService {
       this.onSuccesfulAuthenticate(result);
       console.log(this.user);
     }).catch(error => {
-      // TODO add error dialog
+      this.errorDialog.displayError(error.message);
       console.error(error);
     });
   }

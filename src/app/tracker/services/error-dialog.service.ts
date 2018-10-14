@@ -16,7 +16,8 @@ export class ErrorDialogService {
         data: {
           title: 'Error',
           message: message
-        }
+        },
+        panelClass: 'error-dialog-container'
       });
 
       dialogRef.afterClosed().subscribe(() => {

@@ -33,7 +33,16 @@ export class JoinPageComponent {
 
 
   addUser() {
-    this.feathersClient.service('users').create(this.user).then(response => {
+
+    const newUser = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      username: this.username.value,
+      email: this.email.value,
+      password: this.password.value,
+    };
+
+    this.feathersClient.service('users').create(newUser).then(response => {
       console.log('saved');
       this.login();
     });

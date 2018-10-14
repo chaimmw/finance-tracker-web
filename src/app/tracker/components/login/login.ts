@@ -23,14 +23,12 @@ export class LoginComponent {
 
     const credentials = {
       strategy: 'local',
-      email: this.email,
-      password: this.password,
+      email: this.email.value,
+      password: this.password.value,
     };
 
     this.authService.authenticate(credentials);
   }
-  test(){
-    return true;
-  }
+
 
 }

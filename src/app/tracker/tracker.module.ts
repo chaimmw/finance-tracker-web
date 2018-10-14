@@ -45,6 +45,9 @@ import {ErrorDialogService} from './services/error-dialog.service';
     JoinPageComponent,
     SimpleDialogComponent,
       ],
+  entryComponents: [
+    SimpleDialogComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,

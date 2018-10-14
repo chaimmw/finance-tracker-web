@@ -1,0 +1,72 @@
+@import '../../../styles/app-colors';
+
+
+
+.dialog-container {
+  width: 500px;
+
+  padding: 0;
+
+  background-color: $componentBackground;
+  border-radius: 7px;
+  border: 1px solid $borderGrey;
+  text-align: center;
+
+  .close-button {
+    //position: absolute;
+    top: 2px;
+    right: 5px;
+
+    mat-icon {
+      width: 30px;
+      font-size: 30px;
+    }
+  }
+}
+
+
+
+.error-dialog-container {
+  width: 500px;
+  padding: 0;
+
+  background-color: $componentBackground;
+  border-radius: 7px;
+  border: 1px solid $borderGrey;
+  text-align: center;
+
+  .dialog-header {
+    position: relative;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .header {
+    color: $warningRed;
+    font-size: larger;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+
+    mat-icon {
+      width: 30px;
+      font-size: 30px;
+    }
+  }
+}
+
+
+
+//.close-button {
+//  position: absolute;
+//  top: 2px;
+//  right: 5px;
+//
+//  mat-icon {
+//    width: 30px;
+//    font-size: 30px;
+//  }
+//}

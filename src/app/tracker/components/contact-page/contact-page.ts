@@ -5,6 +5,7 @@ import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
 import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
+import {ErrorDialogService} from '../../services/error-dialog.service';
 
 
 
@@ -19,7 +20,8 @@ export class ContactPageComponent {
 
   constructor(private feathersClient: FeathersClientService,
               private dialog: MatDialog,
-              private router: Router) {
+              private router: Router,
+              private errorDialog: ErrorDialogService) {
   }
 
   sendEmail() {
@@ -33,13 +35,17 @@ export class ContactPageComponent {
       console.log(response);
       this.clearFields();
       this.onSaveMessage();
-    });
+    })
+      .catch(error => {
+        console.log(error);
+        this.errorDialog.displayError(error.message);
+      });
 
   }
 
   clearFields() {
-    this.email.setValue('');
-    this.message.setValue('');
+    this.email.reset('');
+    this.message.reset('');
   }
 
   onSaveMessage() {

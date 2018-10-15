@@ -6,6 +6,7 @@ import {AuthService} from '../../services/authService';
 import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
 import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
+import {ErrorDialogService} from '../../services/error-dialog.service';
 
 const defaultIncome = {
   userId: undefined,
@@ -39,7 +40,8 @@ export class IncomePageComponent {
     constructor(private feathersClient: FeathersClientService,
                 private authService: AuthService,
                 private dialog: MatDialog,
-                private router: Router) {
+                private router: Router,
+                private errorDialog: ErrorDialogService) {
     }
 
     saveIncome() {
@@ -50,7 +52,11 @@ export class IncomePageComponent {
         console.log('saved');
         this.clearFields();
         this.onSaveMessage();
-      });
+      })
+        .catch(error => {
+          console.log(error);
+          this.errorDialog.displayError(error.message);
+        });
     }
 
     clearFields() {

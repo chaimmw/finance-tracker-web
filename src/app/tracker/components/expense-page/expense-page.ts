@@ -6,6 +6,7 @@ import {AuthService} from '../../services/authService';
 import {MatDialog} from '@angular/material';
 import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
 import {Router} from '@angular/router';
+import {ErrorDialogService} from '../../services/error-dialog.service';
 
 const defaultExpense = {
   userId: undefined,
@@ -46,7 +47,8 @@ export class ExpensePageComponent {
     constructor(private feathersClient: FeathersClientService,
                 private authService: AuthService,
                 private dialog: MatDialog,
-                private router: Router) {
+                private router: Router,
+                private errorDialog: ErrorDialogService) {
     }
 
     saveExpense() {
@@ -55,7 +57,11 @@ export class ExpensePageComponent {
         console.log('saved');
         this.clearFields();
         this.onSaveMessage();
-      });
+      })
+        .catch(error => {
+          console.log(error);
+          this.errorDialog.displayError(error.message);
+        });
     }
 
     clearFields() {

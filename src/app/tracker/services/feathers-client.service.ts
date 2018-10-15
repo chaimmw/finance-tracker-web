@@ -10,7 +10,10 @@ import feathersAuthClient from '@feathersjs/authentication-client';
 export class FeathersClientService implements OnInit {
 
   private _feathers = feathers();                     // init socket.io
-  private _socket = io('http://localhost:3030');      // init feathers
+  // local development
+  // private _socket = io('http://localhost:3030');      // init feathers
+  //  heroku deployed app
+  private _socket = io('https://cmw-finance-tracker.herokuapp.com');
 
   constructor() {
     this._feathers

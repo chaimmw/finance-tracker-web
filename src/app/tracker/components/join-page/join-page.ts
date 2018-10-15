@@ -52,8 +52,8 @@ export class JoinPageComponent {
 
     const credentials = {
       strategy: 'local',
-      email: this.user.email,
-      password: this.user.password,
+      email: this.email.value,
+      password: this.password.value,
     };
 
     this.authService.authenticate(credentials);

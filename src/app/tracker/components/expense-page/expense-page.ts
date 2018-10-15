@@ -49,7 +49,7 @@ export class ExpensePageComponent {
                 private router: Router) {
     }
 
-    saveExpense(){
+    saveExpense() {
       this.expense.userId = this.authService.user._id;
       this.feathersClient.service('expenses').create(this.expense).then(response => {
         console.log('saved');

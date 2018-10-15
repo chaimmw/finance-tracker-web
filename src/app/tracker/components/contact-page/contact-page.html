@@ -17,11 +17,15 @@
       </div>
 
       <mat-form-field appearance="outline">
-        <input matInput placeholder="Your Email" type="text" [(ngModel)]="email">
+        <input matInput placeholder="Your Email" type="text" [formControl]="email">
+        <mat-error *ngIf="email.invalid">
+          Please enter a valid email
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <textarea matInput placeholder="Message" type="text" [(ngModel)]="message"></textarea>
+        <textarea matInput placeholder="Message" type="text" [formControl]="message"></textarea>
+        <mat-error *ngIf="message.hasError('required')">Please enter a message</mat-error>
       </mat-form-field>
 
       <div class="button-area">

@@ -25,8 +25,8 @@ export class ContactPageComponent {
   sendEmail() {
 
     const emailMessage = {
-      message: `<p>from email: ${this.email}</p><br>
-                            <p>${this.message}</p>  `
+      message: `<p>from email: ${this.email.value}</p><br>
+                            <p>${this.message.value}</p>  `
     };
 
     this.feathersClient.service('mailer').create(emailMessage).then(response => {

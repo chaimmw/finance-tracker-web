@@ -64,4 +64,15 @@ export class ContactPageComponent {
     });
   }
 
+
+  validateFields() {
+    if(this.email.hasError('required') || this.message.hasError('required')) {
+      this.errorDialog.displayError('Please enter all fields');
+    } else if (this.email.invalid){
+      this.errorDialog.displayError('Please enter a valid email');
+    } else {
+      this.sendEmail();
+    }
+  }
+
 }

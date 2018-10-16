@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import {FeathersClientService} from '../../services/feathers-client.service';
 import {AuthService} from '../../services/authService';
 import {FormControl, Validators} from '@angular/forms';
+import {ErrorDialogService} from '../../services/error-dialog.service';
 
 const defaltUser = {
   firstName: undefined,
@@ -28,7 +29,8 @@ export class JoinPageComponent {
   confirmPassword = new FormControl('', [Validators.required]);
 
   constructor(private feathersClient: FeathersClientService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private errorDialog: ErrorDialogService) {
   }
 
 
@@ -58,5 +60,19 @@ export class JoinPageComponent {
 
     this.authService.authenticate(credentials);
 
+  }
+
+  validateFields() {
+    if (this.email.hasError('required') || this.password.hasError('required')) {
+      this.errorDialog.displayError('Please enter all fields');
+    } else if (this.email.invalid) {
+      this.errorDialog.displayError('Please enter a valid email');
+    } else if (this.username.hasError('required')) {
+      this.errorDialog.displayError('Please enter a username');
+    } else if (this.password !== this.confirmPassword) {
+      this.errorDialog.displayError('Password does not match');
+    } else {
+      this.addUser();
+    }
   }
 }

@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../../services/authService';
 import {FormControl, Validators} from '@angular/forms';
+import {ErrorDialogService} from '../../services/error-dialog.service';
 
 
 
@@ -15,7 +16,8 @@ export class LoginComponent {
   password = new FormControl('', [Validators.required]);
 
 
-  constructor(private authService: AuthService,) {
+  constructor(private authService: AuthService,
+              private errorDialog: ErrorDialogService) {
   }
 
 
@@ -28,6 +30,16 @@ export class LoginComponent {
     };
 
     this.authService.authenticate(credentials);
+  }
+
+  validateFields() {
+    if(this.email.hasError('required') || this.password.hasError('required')) {
+      this.errorDialog.displayError('Please enter all fields');
+    } else if (this.email.invalid){
+      this.errorDialog.displayError('Please enter a valid email');
+    } else {
+      this.login();
+    }
   }
 
 

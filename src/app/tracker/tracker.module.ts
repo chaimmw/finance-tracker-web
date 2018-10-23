@@ -27,6 +27,9 @@ import {JoinPageComponent} from './components/join-page/join-page';
 import {ValidatorService} from './services/validator.service';
 import {SimpleDialogComponent} from './components/simple-dialog/simple-dialog';
 import {ErrorDialogService} from './services/error-dialog.service';
+import {WelcomeLayoutComponent} from './components/welcome-layout/welcome-layout';
+import {WelcomePageComponent} from './components/welcome-page/welcome-page';
+import {WelcomeNavComponent} from './components/welcome-nav/welcome-nav';
 
 
 
@@ -44,6 +47,9 @@ import {ErrorDialogService} from './services/error-dialog.service';
     ContactPageComponent,
     JoinPageComponent,
     SimpleDialogComponent,
+    WelcomeLayoutComponent,
+    WelcomePageComponent,
+    WelcomeNavComponent,
       ],
   entryComponents: [
     SimpleDialogComponent

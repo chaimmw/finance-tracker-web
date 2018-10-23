@@ -9,12 +9,21 @@ import {SummaryPageComponent} from './components/summary-page/summary-page';
 import {AboutPageComponent} from './components/about-page/about-page';
 import {ContactPageComponent} from './components/contact-page/contact-page';
 import {JoinPageComponent} from './components/join-page/join-page';
+import {WelcomeLayoutComponent} from './components/welcome-layout/welcome-layout';
+import {WelcomePageComponent} from './components/welcome-page/welcome-page';
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'join', component: JoinPageComponent},
+  {
+    path: 'welcome',
+    component: WelcomeLayoutComponent,
+    children: [
+      {path: '', redirectTo: '/welcome/home', pathMatch: 'full'},
+      {path: 'home', component: WelcomePageComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'join', component: JoinPageComponent},
+    ],
+  },
   {
     path: 'tracker',
     component: TrackerLayoutComponent,

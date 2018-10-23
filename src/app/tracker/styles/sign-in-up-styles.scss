@@ -1,9 +1,9 @@
 @import '../../../styles/app-colors';
 
 .enroll-page {
-  height: 200%;
+  height: 1000px;
 
-  background-color: $trackerBackground;
+  //background-color: $trackerBackground;
 }
 
 .enroll-area {
@@ -12,13 +12,15 @@
   margin: 100px auto;
 
   background-color: $componentBackground;
+  border-radius: 7px;
+  border: 1px solid $borderGrey;
   text-align: center;
 }
 
 .enroll-header {
   position: relative;
 
-  margin-top: 100px;
+  margin-top: 30px;
   padding: 10px;
 
   font-size: larger;

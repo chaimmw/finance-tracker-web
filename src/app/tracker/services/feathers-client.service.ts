@@ -11,9 +11,9 @@ export class FeathersClientService implements OnInit {
 
   private _feathers = feathers();                     // init socket.io
   // local development
-  // private _socket = io('http://localhost:3030');      // init feathers
+  private _socket = io('http://localhost:3030');      // init feathers
   //  heroku deployed app
-  private _socket = io('https://cmw-finance-tracker.herokuapp.com');
+  // private _socket = io('https://cmw-finance-tracker.herokuapp.com');
 
   constructor() {
     this._feathers

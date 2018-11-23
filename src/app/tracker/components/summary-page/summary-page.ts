@@ -3,6 +3,7 @@ import {GridOptions} from 'ag-grid';
 import {FeathersClientService} from '../../services/feathers-client.service';
 import {AuthService} from '../../services/authService';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 
 @Component({
@@ -18,76 +19,84 @@ export class SummaryPageComponent implements OnInit {
 
   gridOptions = <GridOptions>  {
     columnDefs: [{
-      headerName: 'year',
-      field: 'year',
-      width: 100
-    },
-      {
-        headerName: 'month',
-        valueGetter: params => {
-          switch (params.data.month) {
-
-            case 1:
-              return 'Jan';
-              break;
-            case 2:
-              return 'Feb';
-              break;
-            case 3:
-              return 'Mar';
-              break;
-            case 4:
-              return 'Apr';
-              break;
-            case 5:
-              return 'May';
-              break;
-            case 6:
-              return 'Jun';
-              break;
-            case 7:
-              return 'Jul';
-              break;
-            case 8:
-              return 'Aug';
-              break;
-            case 9:
-              return 'Sept';
-              break;
-            case 10:
-              return 'Oct';
-              break;
-            case 11:
-              return 'Nov';
-              break;
-            case 12:
-              return 'Dec';
-              break;
-
-            default:
-              return '';
-          }
-        },
-        sort: 'asc',
-        comparator: function (valueA, valueB, nodeA, nodeB, isInverted) {
+      headerName: 'date',
+      valueGetter: params => {
+        return moment(params.data.date).format('MMM') + ' ' + moment(params.data.date).format('YYYY');
+      },
+      sort: 'asc',
+      comparator: function (valueA, valueB, nodeA, nodeB, isInverted) {
           // get date info from nodes
-          const rowAYear = nodeA.data.year;
-          const rowBYear = nodeB.data.year;
-          const rowAMonth = nodeA.data.month;
-          const rowBMonth = nodeB.data.month;
-          // if same year
-          if (rowBYear === rowAYear) {
-            return rowAMonth - rowBMonth;
-            // if later
-          } else if (rowAYear > rowBYear) {
+          const rowADate = nodeA.data.year;
+          const rowBDate = nodeB.data.year;
+         if (moment(rowADate).isAfter(rowBDate)) {
             return 1;
-            // if earlier
-          }  else if (rowAYear < rowBYear) {
+          }  else {
             return -1;
           }
-        },
-        width: 100,
       },
+      width: 150
+    },
+      // {
+      //   headerName: 'month',
+      //   valueGetter: params => {
+      //     switch (params.data.month) {
+
+      //       case 1:
+      //         return 'Jan';
+      //         break;
+      //       case 2:
+      //         return 'Feb';
+      //         break;
+      //       case 3:
+      //         return 'Mar';
+      //         break;
+      //       case 4:
+      //         return 'Apr';
+      //         break;
+      //       case 5:
+      //         return 'May';
+      //         break;
+      //       case 6:
+      //         return 'Jun';
+      //         break;
+      //       case 7:
+      //         return 'Jul';
+      //         break;
+      //       case 8:
+      //         return 'Aug';
+      //         break;
+      //       case 9:
+      //         return 'Sept';
+      //         break;
+      //       case 10:
+      //         return 'Oct';
+      //         break;
+      //       case 11:
+      //         return 'Nov';
+      //         break;
+      //       case 12:
+      //         return 'Dec';
+      //         break;
+
+      //       default:
+      //         return '';
+      //     }
+      //   },
+      //   sort: 'asc',
+      //   comparator: function (valueA, valueB, nodeA, nodeB, isInverted) {
+      //     // get date info from nodes
+      //     const rowADate = nodeA.data.year;
+      //     const rowBDate = nodeB.data.year;
+      //     // const rowAMonth = nodeA.data.month;
+      //     // const rowBMonth = nodeB.data.month;
+      //    if (moment(rowADate).isAfter(rowBDate)) {
+      //       return 1;
+      //     }  else {
+      //       return -1;
+      //     }
+      //   },
+      //   width: 100,
+      // },
       {
         headerName: 'Expenses',
         field: 'totalExpense',
@@ -103,7 +112,7 @@ export class SummaryPageComponent implements OnInit {
         valueGetter: params => {
           return params.data.earnings - params.data.totalExpense;
         },
-        width: 100,
+        width: 150,
       },
     ],
     enableSorting: true,
@@ -155,7 +164,7 @@ export class SummaryPageComponent implements OnInit {
 
     this.rowData = this.expenses.map(expense => {
 
-      const income = this.incomes.filter(earnings => earnings.year === expense.year && earnings.month === expense.month);
+      const income = this.incomes.filter(earnings => earnings.date === expense.date);
 
       expense.totalExpense = this.getTotalExpense(expense);
 
@@ -166,7 +175,7 @@ export class SummaryPageComponent implements OnInit {
 
   getTotalExpense(expense) {
     // filter out non expense data e.g. created date, id
-    const data = _.omit(_.pickBy(expense, _.isNumber), ['year', 'month', 'earnings']);
+    const data = _.omit(_.pickBy(expense, _.isNumber), ['date', 'earnings']);
     return _.sum(_.values(data));
   }
 

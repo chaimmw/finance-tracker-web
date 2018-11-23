@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 import { AgGridModule } from 'ag-grid-angular';
 
 import {LoginComponent} from './components/login/login';
@@ -67,6 +69,8 @@ import {WelcomeNavComponent} from './components/welcome-nav/welcome-nav';
     MatSelectModule,
     MatDialogModule,
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     // ag grid
     AgGridModule.withComponents([]),

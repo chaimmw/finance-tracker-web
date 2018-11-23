@@ -7,11 +7,14 @@ import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
 import {MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
 import {ErrorDialogService} from '../../services/error-dialog.service';
+import { importType } from '@angular/compiler/src/output/output_ast';
+import * as moment from 'moment';
 
 const defaultIncome = {
   userId: undefined,
-  month: undefined,
-  year: undefined,
+  // month: undefined,
+  // year: undefined
+  date: undefined,
   earnings: undefined,
 };
 
@@ -20,6 +23,8 @@ const defaultIncome = {
   styleUrls: ['income-page.scss'],
 })
 export class IncomePageComponent {
+
+  date;
 
   income = _.cloneDeep(defaultIncome);
 
@@ -47,7 +52,7 @@ export class IncomePageComponent {
     saveIncome() {
 
       this.income.userId = this.authService.user._id;
-
+      this.income.date = moment(this.date).startOf('month');
       this.feathersClient.service('incomes').create(this.income).then(response => {
         console.log('saved');
         this.clearFields();

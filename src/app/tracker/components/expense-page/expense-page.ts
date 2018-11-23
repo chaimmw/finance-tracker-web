@@ -7,11 +7,13 @@ import {MatDialog} from '@angular/material';
 import {SimpleDialogComponent} from '../simple-dialog/simple-dialog';
 import {Router} from '@angular/router';
 import {ErrorDialogService} from '../../services/error-dialog.service';
+import * as moment from 'moment';
 
 const defaultExpense = {
   userId: undefined,
-  month: undefined,
-  year: undefined,
+  // month: undefined,
+  // year: undefined,
+  date: undefined,
   food: undefined,
   gas: undefined,
   household: undefined,
@@ -28,6 +30,8 @@ const defaultExpense = {
   styleUrls: ['expense-page.scss'],
 })
 export class ExpensePageComponent {
+
+  date;
 
   expense = _.cloneDeep(defaultExpense);
 
@@ -53,6 +57,7 @@ export class ExpensePageComponent {
 
     saveExpense() {
       this.expense.userId = this.authService.user._id;
+      this.expense.date = moment(this.date).startOf('month');
       this.feathersClient.service('expenses').create(this.expense).then(response => {
         console.log('saved');
         this.clearFields();
@@ -62,6 +67,8 @@ export class ExpensePageComponent {
           console.log(error);
           this.errorDialog.displayError(error.message);
         });
+
+      // console.log(moment(this.date).startOf('month'));
     }
 
     clearFields() {

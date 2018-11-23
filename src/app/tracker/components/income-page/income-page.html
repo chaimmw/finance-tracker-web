@@ -12,7 +12,7 @@
     </div>
 
     <div class="date-selection">
-      <mat-form-field>
+      <!-- <mat-form-field>
         <mat-select placeholder="Month" [(value)]="income.month" name="month">
           <mat-option *ngFor="let month of months" [value]="month.value">
             {{month.name}}
@@ -22,7 +22,13 @@
 
       <mat-form-field appearance="outline">
         <input matInput placeholder="Year" type="number" [(ngModel)]="income.year">
-      </mat-form-field>
+      </mat-form-field>-->
+
+      <mat-form-field appearance="outline">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
     </div>
 
     <div class="earning-field">

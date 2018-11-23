@@ -36,6 +36,7 @@
     "core-js": "^2.4.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
+    "moment": "^2.22.2",
     "rxjs": "^6.2.2",
     "socket.io-client": "^2.1.1",
     "zone.js": "^0.8.19"
